@@ -1,0 +1,57 @@
+name: zender-wa
+title: Servidor WhatsApp (Zender)
+version: "1.0.0"
+description: >
+  Despliega el servidor de WhatsApp de Titan Systems (Zender) con persistencia
+  de sesiones para mantener el estado de login entre reinicios.
+instructions: null
+changeLog:
+  - date: 2025-06-29
+    description: Initial release of Zender WA EasyPanel template
+links:
+  - label: Website
+    url: https://titansystems.ph
+  - label: Documentation
+    url: https://support.titansystems.ph/hc/articles/9/24/10/introduction
+  - label: GitHub
+    url: https://github.com/RenatoAscencio/easypanel-templates
+contributors:
+  - name: Renato Ascencio
+    url: https://github.com/RenatoAscencio
+schema:
+  type: object
+  required:
+    - pcode
+    - licenseKey
+    - port
+  properties:
+    pcode:
+      type: string
+      title: Product Code (pcode)
+      description: UUID de producto proporcionado por Titan Systems.
+    licenseKey:
+      type: string
+      title: License Key
+      description: Clave de licencia de Titan Systems.
+    port:
+      type: integer
+      title: Puerto TCP
+      description: Puerto donde escuchará el servidor WhatsApp.
+      default: 443
+benefits:
+  - title: Persistencia de sesiones
+    description: Mantiene las sesiones de WhatsApp activas entre reinicios.
+  - title: Auto-recuperación
+    description: Crontab garantiza que el servidor se reinicie si falla.
+features:
+  - title: Instalación de dependencias
+    description: Actualiza el sistema e instala wget, curl, unzip y cron.
+  - title: Gestión de directorios
+    description: Usa un volumen montado en /app/data/whatsapp-server.
+  - title: Actualización automática
+    description: Descarga la última versión del servidor en cada despliegue.
+tags:
+  - WhatsApp
+  - Zender
+  - EasyPanel
+  - Docker
