@@ -1,7 +1,7 @@
 name: zender-wa
 title: Servidor WhatsApp (Zender)
 version: "1.0.0"
-description:
+description: >
   Despliega el servidor de WhatsApp de Titan Systems (Zender) con
   persistencia de sesiones para mantener el estado de login entre reinicios.
 instructions: null
