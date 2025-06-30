@@ -8,6 +8,8 @@ instructions: null
 changeLog:
   - date: 2025-06-29
     description: Initial release of Zender WA EasyPanel template
+  - date: 2025-06-30
+    description: Fix deploy command and add cron job with sleep infinity
 links:
   - label: Website
     url: https://titansystems.ph
@@ -21,10 +23,15 @@ contributors:
 schema:
   type: object
   required:
+    - appServiceName
     - pcode
     - licenseKey
     - port
   properties:
+    appServiceName:
+      type: string
+      title: App Service Name
+      default: zender-wa
     pcode:
       type: string
       title: Product Code (pcode)
