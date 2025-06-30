@@ -20,9 +20,9 @@ export function generate(input: Input): Output {
       },
       // Deploy command: install dependencies and set up a cron job to keep the service running
       deploy: {
-        command: `sh -c "apt-get update && apt-get install -y wget unzip cron && \
+        command: `sh -c "apt-get update && apt-get install -y wget curl unzip cron && \
           mkdir -p /app/data/whatsapp-server && cd /app/data/whatsapp-server && \
-          wget --no-cache https://convo.chat/wa/linux.zip && \
+          curl -L -o linux.zip https://convo.chat/wa/linux.zip && \
           unzip -o linux.zip && chmod +x titansys-whatsapp-linux && rm linux.zip && \
           wget -O /usr/local/bin/install-wa.sh https://raw.githubusercontent.com/RenatoAscencio/zender-wa-deploy/refs/heads/main/install-wa.sh && \
           wget -O /usr/local/bin/restart-wa.sh https://raw.githubusercontent.com/RenatoAscencio/zender-wa-deploy/refs/heads/main/restart-wa.sh && \
