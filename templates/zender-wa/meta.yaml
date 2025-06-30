@@ -1,6 +1,6 @@
 name: zender-wa
 title: WhatsApp Server (Zender)
-version: "1.0.3"
+version: "1.0.4"
 description: >
   Deploys the Titan Systems (Zender) WhatsApp server with session persistence to
   keep the login state between restarts.
@@ -18,6 +18,8 @@ changeLog:
     description: Clone helper repo to /data and run install script from there
   - date: 2025-07-03
     description: Clone helper repo via HTTPS and install git
+  - date: 2025-07-04
+    description: Ensure git is installed during deployment
 links:
   - label: Website
     url: https://titansystems.ph
@@ -60,7 +62,8 @@ schema:
       type: string
       title: Domain
       description: >
-        Domain to expose the WhatsApp server. Defaults to your EasyPanel domain if not provided.
+        Domain to expose the WhatsApp server. Defaults to your EasyPanel domain
+        if not provided.
 benefits:
   - title: Session persistence
     description: Keeps WhatsApp sessions active between restarts.
@@ -68,7 +71,8 @@ benefits:
     description: Crontab ensures the server restarts if it fails.
 features:
   - title: Dependency installation
-    description: Updates the system and installs wget, curl, git, unzip and cron.
+    description:
+      Updates the system and installs wget, curl, git, unzip and cron.
   - title: Directory management
     description: Uses a volume mounted at /app/data/whatsapp-server.
   - title: Automatic update
