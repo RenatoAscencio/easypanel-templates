@@ -54,6 +54,11 @@ schema:
       title: TCP Port
       description: Port where the WhatsApp server will listen.
       default: 443
+    domain:
+      type: string
+      title: Domain
+      description: >
+        Domain to expose the WhatsApp server. Defaults to your EasyPanel domain if not provided.
 benefits:
   - title: Session persistence
     description: Keeps WhatsApp sessions active between restarts.

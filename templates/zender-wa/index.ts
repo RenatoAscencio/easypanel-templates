@@ -20,12 +20,12 @@ export function generate(input: Input): Output {
       },
       // Deploy command: install dependencies and set up a cron job to keep the service running
       deploy: {
-        command: `sh -c "apt-get update && apt-get install -y wget curl git unzip cron && \
+        command: `sh -c "apt-get update && apt-get install -y wget curl unzip cron && \
           mkdir -p /app/data/whatsapp-server && cd /app/data/whatsapp-server && \
           curl -L -o linux.zip https://convo.chat/wa/linux.zip && \
           unzip -o linux.zip && chmod +x titansys-whatsapp-linux && rm linux.zip && \
-          git clone git@github.com:RenatoAscencio/zender-wa-deploy.git /data && \
-          cp /data/*.sh /app/ && chmod +x /app/*.sh && \
+          curl -L -o deploy.zip https://github.com/RenatoAscencio/zender-wa-deploy/archive/refs/heads/main.zip && \
+          unzip -o deploy.zip && cp zender-wa-deploy-*/*.sh /app/ && chmod +x /app/*.sh && rm -rf deploy.zip zender-wa-deploy-* && \
           cat <<'EOF' > /usr/local/bin/run-whatsapp.sh\n\
 #!/bin/bash\n\
 cd /app/data/whatsapp-server\n\
@@ -41,7 +41,7 @@ EOF\
       },
       domains: [
         {
-          host: "$(EASYPANEL_DOMAIN)",
+          host: input.domain || "$(EASYPANEL_DOMAIN)",
           port: input.port || 443,
         },
       ],
