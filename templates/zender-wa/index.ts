@@ -33,17 +33,9 @@ export function generate(input: Input): Output {
           unzip -o deploy.zip && cp zender-wa-deploy-*/*.sh /app/ && chmod +x /app/*.sh && rm -rf deploy.zip zender-wa-deploy-* && \
 
 
-          cat <<'EOF' > /usr/local/bin/run-whatsapp.sh\n\
-#!/bin/bash\n\
-cd /app/data/whatsapp-server\n\
-if ! pgrep -f titansys-whatsapp-linux > /dev/null; then\n\
-  ./titansys-whatsapp-linux --pcode=\$PCODE --key=\$KEY --host=0.0.0.0 --port=\$PORT &\n\
-fi\n\
-EOF\
-          chmod +x /usr/local/bin/run-whatsapp.sh && \
           /app/install-wa.sh && \
-          /usr/local/bin/run-whatsapp.sh && \
-          (crontab -l 2>/dev/null; echo "* * * * * /usr/local/bin/run-whatsapp.sh") | crontab - && \
+          /app/restart-wa.sh && \
+          (crontab -l 2>/dev/null; echo "* * * * * /app/restart-wa.sh") | crontab - && \
           cron && sleep infinity"`,
       },
       domains: [
