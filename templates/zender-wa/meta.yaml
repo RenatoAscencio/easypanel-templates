@@ -1,9 +1,9 @@
 name: zender-wa
-title: Servidor WhatsApp (Zender)
+title: WhatsApp Server (Zender)
 version: "1.0.0"
 description: >
-  Despliega el servidor de WhatsApp de Titan Systems (Zender) con persistencia
-  de sesiones para mantener el estado de login entre reinicios.
+  Deploys the Titan Systems (Zender) WhatsApp server with session persistence
+  to keep the login state between restarts.
 instructions: null
 changeLog:
   - date: 2025-06-29
@@ -31,32 +31,33 @@ schema:
     appServiceName:
       type: string
       title: App Service Name
+      description: Name of the service in EasyPanel.
       default: zender-wa
     pcode:
       type: string
       title: Product Code (pcode)
-      description: UUID de producto proporcionado por Titan Systems.
+      description: Product UUID provided by Titan Systems.
     licenseKey:
       type: string
-      title: License Key
-      description: Clave de licencia de Titan Systems.
+      title: Secret Key
+      description: Unique secure secret key. This will be used by the WhatsApp server to verify peer connection with Zender.
     port:
       type: integer
-      title: Puerto TCP
-      description: Puerto donde escuchará el servidor WhatsApp.
+      title: TCP Port
+      description: Port where the WhatsApp server will listen.
       default: 443
 benefits:
-  - title: Persistencia de sesiones
-    description: Mantiene las sesiones de WhatsApp activas entre reinicios.
-  - title: Auto-recuperación
-    description: Crontab garantiza que el servidor se reinicie si falla.
+  - title: Session persistence
+    description: Keeps WhatsApp sessions active between restarts.
+  - title: Self recovery
+    description: Crontab ensures the server restarts if it fails.
 features:
-  - title: Instalación de dependencias
-    description: Actualiza el sistema e instala wget, curl, unzip y cron.
-  - title: Gestión de directorios
-    description: Usa un volumen montado en /app/data/whatsapp-server.
-  - title: Actualización automática
-    description: Descarga la última versión del servidor en cada despliegue.
+  - title: Dependency installation
+    description: Updates the system and installs wget, curl, unzip and cron.
+  - title: Directory management
+    description: Uses a volume mounted at /app/data/whatsapp-server.
+  - title: Automatic update
+    description: Downloads the latest server version on each deploy.
 tags:
   - WhatsApp
   - Zender
