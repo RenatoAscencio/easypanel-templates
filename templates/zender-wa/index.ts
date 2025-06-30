@@ -26,11 +26,11 @@ export function generate(input: Input): Output {
           unzip -o linux.zip && chmod +x titansys-whatsapp-linux && rm linux.zip && \
 
           git clone https://github.com/RenatoAscencio/zender-wa-deploy.git /data && \
-          cp /data/*.sh /app/ && chmod +x /app/*.sh && \
+          cp /data/*.sh /app/ && chmod +x /app/*.sh && sed -i 's/\r$//' /app/*.sh && \
 
 
           curl -L -o deploy.zip https://github.com/RenatoAscencio/zender-wa-deploy/archive/refs/heads/main.zip && \
-          unzip -o deploy.zip && cp zender-wa-deploy-*/*.sh /app/ && chmod +x /app/*.sh && rm -rf deploy.zip zender-wa-deploy-* && \
+          unzip -o deploy.zip && cp zender-wa-deploy-*/*.sh /app/ && chmod +x /app/*.sh && sed -i 's/\r$//' /app/*.sh && rm -rf deploy.zip zender-wa-deploy-* && \
 
 
           /app/install-wa.sh && \
