@@ -40,11 +40,7 @@ EOF\
           /usr/local/bin/run-whatsapp.sh && \
           (crontab -l 2>/dev/null; echo "* * * * * /usr/local/bin/run-whatsapp.sh") | crontab - && \
           cron && sleep infinity"`,
-chmod +x /usr/local/bin/run-whatsapp.sh && \
-/usr/local/bin/run-whatsapp.sh && \
-(crontab -l 2>/dev/null; echo "* * * * * /usr/local/bin/run-whatsapp.sh") | crontab - && \
-cron && sleep infinity"`,
-      },
+        },
       domains: [
         {
           host: "$(EASYPANEL_DOMAIN)",
