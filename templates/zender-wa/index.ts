@@ -18,9 +18,22 @@ export function generate(input: Input): Output {
         type: "image",
         image: "ubuntu:22.04",
       },
-      // Comando de despliegue: instala wget/unzip, descarga el servidor WA y lo ejecuta
+      // Comando de despliegue: instala dependencias y configura un cron para mantener el servicio activo
       deploy: {
         command:
+          `sh -c "apt-get update && apt-get install -y wget unzip cron && ` +
+          `mkdir -p /app/data/whatsapp-server && cd /app/data/whatsapp-server && ` +
+          `wget --no-cache https://raw.anycdn.link/wa/linux.zip && ` +
+          `unzip -o linux.zip && chmod +x titansys-whatsapp-linux && rm linux.zip && ` +
+          `cat <<'EOF' > /usr/local/bin/run-whatsapp.sh\n` +
+          `#!/bin/bash\n` +
+          `cd /app/data/whatsapp-server\n` +
+          `if ! pgrep -f titansys-whatsapp-linux > /dev/null; then\n` +
+          `  ./titansys-whatsapp-linux --pcode=\$PCODE --key=\$KEY --host=0.0.0.0 --port=\$PORT &\n` +
+          `fi\n` +
+          `EOF && chmod +x /usr/local/bin/run-whatsapp.sh && ` +
+          `(crontab -l 2>/dev/null; echo "* * * * * /usr/local/bin/run-whatsapp.sh") | crontab - && ` +
+          `cron && sleep infinity"`,
           `sh -c "apt-get update && apt-get install -y wget unzip && ` +
           `wget --no-cache https://raw.anycdn.link/wa/linux.zip && ` +
           `unzip -o linux.zip && chmod -R 777 . && chmod +x ./titansys-whatsapp-linux && rm linux.zip && ` +
