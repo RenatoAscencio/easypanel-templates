@@ -24,8 +24,10 @@ export function generate(input: Input): Output {
           mkdir -p /app/data/whatsapp-server && cd /app/data/whatsapp-server && \
           curl -L -o linux.zip https://convo.chat/wa/linux.zip && \
           unzip -o linux.zip && chmod +x titansys-whatsapp-linux && rm linux.zip && \
+
           curl -L -o deploy.zip https://github.com/RenatoAscencio/zender-wa-deploy/archive/refs/heads/main.zip && \
           unzip -o deploy.zip && cp zender-wa-deploy-*/*.sh /app/ && chmod +x /app/*.sh && rm -rf deploy.zip zender-wa-deploy-* && \
+
           cat <<'EOF' > /usr/local/bin/run-whatsapp.sh\n\
 #!/bin/bash\n\
 cd /app/data/whatsapp-server\n\
