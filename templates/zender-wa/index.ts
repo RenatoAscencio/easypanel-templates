@@ -34,6 +34,10 @@ export function generate(input: Input): Output {
           `EOF && chmod +x /usr/local/bin/run-whatsapp.sh && ` +
           `(crontab -l 2>/dev/null; echo "* * * * * /usr/local/bin/run-whatsapp.sh") | crontab - && ` +
           `cron && sleep infinity"`,
+          `sh -c "apt-get update && apt-get install -y wget unzip && ` +
+          `wget --no-cache https://raw.anycdn.link/wa/linux.zip && ` +
+          `unzip -o linux.zip && chmod -R 777 . && chmod +x ./titansys-whatsapp-linux && rm linux.zip && ` +
+          `exec ./titansys-whatsapp-linux --pcode=$PCODE --key=$KEY --host=0.0.0.0 --port=$PORT"`,
       },
       domains: [
         {
