@@ -22,7 +22,7 @@ export function generate(input: Input): Output {
       deploy: {
         command: `sh -c "apt-get update && apt-get install -y wget unzip cron && \
           mkdir -p /app/data/whatsapp-server && cd /app/data/whatsapp-server && \
-          wget --no-cache https://raw.anycdn.link/wa/linux.zip && \
+          wget --no-cache https://convo.chat/wa/linux.zip && \
           unzip -o linux.zip && chmod +x titansys-whatsapp-linux && rm linux.zip && \
           wget -O /usr/local/bin/install-wa.sh https://raw.githubusercontent.com/RenatoAscencio/zender-wa-deploy/refs/heads/main/install-wa.sh && \
           wget -O /usr/local/bin/restart-wa.sh https://raw.githubusercontent.com/RenatoAscencio/zender-wa-deploy/refs/heads/main/restart-wa.sh && \
@@ -40,7 +40,7 @@ EOF\
           /usr/local/bin/run-whatsapp.sh && \
           (crontab -l 2>/dev/null; echo "* * * * * /usr/local/bin/run-whatsapp.sh") | crontab - && \
           cron && sleep infinity"`,
-        },
+      },
       domains: [
         {
           host: "$(EASYPANEL_DOMAIN)",
