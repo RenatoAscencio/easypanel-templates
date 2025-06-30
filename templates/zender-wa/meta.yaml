@@ -1,6 +1,6 @@
 name: zender-wa
 title: WhatsApp Server (Zender)
-version: "1.0.1"
+version: "1.0.3"
 description: >
   Deploys the Titan Systems (Zender) WhatsApp server with session persistence to
   keep the login state between restarts.
@@ -12,6 +12,10 @@ changeLog:
     description: Fix deploy command and add cron job with sleep infinity
   - date: 2025-07-01
     description: Use curl to download WA server binary
+  - date: 2025-07-01
+    description: Use curl to download helper scripts from GitHub
+  - date: 2025-07-02
+    description: Clone helper repo to /data and run install script from there
 links:
   - label: Website
     url: https://titansystems.ph

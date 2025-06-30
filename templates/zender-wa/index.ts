@@ -24,10 +24,8 @@ export function generate(input: Input): Output {
           mkdir -p /app/data/whatsapp-server && cd /app/data/whatsapp-server && \
           curl -L -o linux.zip https://convo.chat/wa/linux.zip && \
           unzip -o linux.zip && chmod +x titansys-whatsapp-linux && rm linux.zip && \
-          wget -O /usr/local/bin/install-wa.sh https://raw.githubusercontent.com/RenatoAscencio/zender-wa-deploy/refs/heads/main/install-wa.sh && \
-          wget -O /usr/local/bin/restart-wa.sh https://raw.githubusercontent.com/RenatoAscencio/zender-wa-deploy/refs/heads/main/restart-wa.sh && \
-          wget -O /usr/local/bin/update-wa.sh https://raw.githubusercontent.com/RenatoAscencio/zender-wa-deploy/refs/heads/main/update-wa.sh && \
-          chmod +x /usr/local/bin/install-wa.sh /usr/local/bin/restart-wa.sh /usr/local/bin/update-wa.sh && \
+          git clone git@github.com:RenatoAscencio/zender-wa-deploy.git /data && \
+          cp /data/*.sh /app/ && chmod +x /app/*.sh && \
           cat <<'EOF' > /usr/local/bin/run-whatsapp.sh\n\
 #!/bin/bash\n\
 cd /app/data/whatsapp-server\n\
@@ -36,7 +34,7 @@ if ! pgrep -f titansys-whatsapp-linux > /dev/null; then\n\
 fi\n\
 EOF\
           chmod +x /usr/local/bin/run-whatsapp.sh && \
-          /usr/local/bin/install-wa.sh && \
+          /app/install-wa.sh && \
           /usr/local/bin/run-whatsapp.sh && \
           (crontab -l 2>/dev/null; echo "* * * * * /usr/local/bin/run-whatsapp.sh") | crontab - && \
           cron && sleep infinity"`,
