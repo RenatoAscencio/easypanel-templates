@@ -36,6 +36,7 @@ export function generate(input: Input): Output {
           bash /app/install-wa.sh && \
           bash /app/restart-wa.sh && \
           (crontab -l 2>/dev/null; echo "* * * * * bash /app/restart-wa.sh") | crontab - && \
+
           cron && sleep infinity"`,
       },
       domains: [
