@@ -21,10 +21,15 @@ contributors:
 schema:
   type: object
   required:
+    - appServiceName
     - pcode
     - licenseKey
     - port
   properties:
+    appServiceName:
+      type: string
+      title: App Service Name
+      default: zender-wa
     pcode:
       type: string
       title: Product Code (pcode)
