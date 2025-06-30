@@ -16,6 +16,8 @@ changeLog:
     description: Use curl to download helper scripts from GitHub
   - date: 2025-07-02
     description: Clone helper repo to /data and run install script from there
+  - date: 2025-07-03
+    description: Clone helper repo via HTTPS and install git
 links:
   - label: Website
     url: https://titansystems.ph
@@ -54,6 +56,11 @@ schema:
       title: TCP Port
       description: Port where the WhatsApp server will listen.
       default: 443
+    domain:
+      type: string
+      title: Domain
+      description: >
+        Domain to expose the WhatsApp server. Defaults to your EasyPanel domain if not provided.
 benefits:
   - title: Session persistence
     description: Keeps WhatsApp sessions active between restarts.
@@ -61,7 +68,7 @@ benefits:
     description: Crontab ensures the server restarts if it fails.
 features:
   - title: Dependency installation
-    description: Updates the system and installs wget, curl, unzip and cron.
+    description: Updates the system and installs wget, curl, git, unzip and cron.
   - title: Directory management
     description: Uses a volume mounted at /app/data/whatsapp-server.
   - title: Automatic update
