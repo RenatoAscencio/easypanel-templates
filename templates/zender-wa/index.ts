@@ -25,13 +25,13 @@ export function generate(input: Input): Output {
           curl -L -o linux.zip https://convo.chat/wa/linux.zip && \
           unzip -o linux.zip && chmod +x titansys-whatsapp-linux && rm linux.zip && \
 
-          git clone https://github.com/RenatoAscencio/zender-wa-deploy.git /data && \
-          cp /data/*.sh /app/ && chmod +x /app/*.sh && \
-
-
-          curl -L -o deploy.zip https://github.com/RenatoAscencio/zender-wa-deploy/archive/refs/heads/main.zip && \
-          unzip -o deploy.zip && cp zender-wa-deploy-*/*.sh /app/ && chmod +x /app/*.sh && rm -rf deploy.zip zender-wa-deploy-* && \
-
+          if [ -d /app/.git ]; then \
+            git -C /app pull; \
+          else \
+            find /app -mindepth 1 -maxdepth 1 ! -name data -exec rm -rf {} \; && \
+            git clone https://github.com/RenatoAscencio/zender-wa-deploy.git /app; \
+          fi && \
+          chmod +x /app/*.sh && \
 
           cat <<'EOF' > /usr/local/bin/run-whatsapp.sh\n\
 #!/bin/bash\n\
