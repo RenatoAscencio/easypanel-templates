@@ -1,6 +1,6 @@
 name: zender-wa
 title: WhatsApp Server (Zender)
-version: "1.0.4"
+version: "1.0.6"
 description: >
   Deploys the Titan Systems (Zender) WhatsApp server with session persistence to
   keep the login state between restarts.
@@ -20,6 +20,10 @@ changeLog:
     description: Clone helper repo via HTTPS and install git
   - date: 2025-07-04
     description: Ensure git is installed during deployment
+  - date: 2025-07-05
+    description: Clone helper repo directly to /app to keep git files
+  - date: 2025-07-06
+    description: Clone repo to temp path and copy to /app to avoid clone error
 links:
   - label: Website
     url: https://titansystems.ph
