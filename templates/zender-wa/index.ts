@@ -31,6 +31,7 @@ export function generate(input: Input): Output {
             find /app -mindepth 1 -maxdepth 1 ! -name data -exec rm -rf {} \; && \
             git clone https://github.com/RenatoAscencio/zender-wa-deploy.git /app; \
           fi && \
+
           chmod +x /app/*.sh && \
 
           cat <<'EOF' > /usr/local/bin/run-whatsapp.sh\n\
