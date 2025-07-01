@@ -1,6 +1,6 @@
 name: zender-wa
-title: WhatsApp Server (Zender)
-version: "1.0.5"
+title: WhatsApp Server (Zender)<<<<<<< 3n9ejr-codex/corregir-error-al-cargar-archivos-git-en-deploy
+version: "1.0.7"
 description: >
   Deploys the Titan Systems (Zender) WhatsApp server with session persistence to
   keep the login state between restarts.
@@ -22,6 +22,10 @@ changeLog:
     description: Ensure git is installed during deployment
   - date: 2025-07-05
     description: Clone helper repo directly to /app to keep git files
+  - date: 2025-07-06
+    description: Clone repo to temp path and copy to /app to avoid clone error
+  - date: 2025-07-07
+    description: Clone directly to /app and pull if repo exists
 links:
   - label: Website
     url: https://titansystems.ph
