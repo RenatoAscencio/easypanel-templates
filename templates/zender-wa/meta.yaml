@@ -1,5 +1,5 @@
 name: zender-wa
-title: WhatsApp Server (Zender)<<<<<<< 3n9ejr-codex/corregir-error-al-cargar-archivos-git-en-deploy
+title: WhatsApp Server (Zender)
 version: "1.0.7"
 description: >
   Deploys the Titan Systems (Zender) WhatsApp server with session persistence to
