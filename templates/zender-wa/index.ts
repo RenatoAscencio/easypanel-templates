@@ -33,10 +33,9 @@ export function generate(input: Input): Output {
           unzip -o deploy.zip && cp zender-wa-deploy-*/*.sh /app/ && chmod +x /app/*.sh && sed -i 's/\r$//' /app/*.sh && rm -rf deploy.zip zender-wa-deploy-* && \
 
 
-          bash /app/install-wa.sh && \
-          bash /app/restart-wa.sh && \
-          (crontab -l 2>/dev/null; echo "* * * * * bash /app/restart-wa.sh") | crontab - && \
-
+          /app/install-wa.sh && \
+          /app/restart-wa.sh && \
+          (crontab -l 2>/dev/null; echo "* * * * * /app/restart-wa.sh") | crontab - && \
           cron && sleep infinity"`,
       },
       domains: [
