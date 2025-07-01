@@ -40,7 +40,7 @@ cd /app/data/whatsapp-server\n\
 if ! pgrep -f titansys-whatsapp-linux > /dev/null; then\n\
   ./titansys-whatsapp-linux --pcode=\$PCODE --key=\$KEY --host=0.0.0.0 --port=\$PORT &\n\
 fi\n\
-EOF
+EOF\n\
           chmod +x /usr/local/bin/run-whatsapp.sh && \
           /app/install-wa.sh && \
           /usr/local/bin/run-whatsapp.sh && \
