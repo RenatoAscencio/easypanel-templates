@@ -1,13 +1,32 @@
+# meta.yaml
 name: zender-wa
-title: Servidor WhatsApp (Zender)
-version: "1.0.0"
+title: WhatsApp Server (Zender)
+version: "1.0.7"
 description: >
-  Despliega el servidor de WhatsApp de Titan Systems (Zender) con persistencia
-  de sesiones para mantener el estado de login entre reinicios.
+  Deploys the Titan Systems (Zender) WhatsApp server with session persistence to
+  keep the login state between restarts.
 instructions: null
 changeLog:
   - date: 2025-06-29
     description: Initial release of Zender WA EasyPanel template
+  - date: 2025-06-30
+    description: Fix deploy command and add cron job with sleep infinity
+  - date: 2025-07-01
+    description: Use curl to download WA server binary
+  - date: 2025-07-01
+    description: Use curl to download helper scripts from GitHub
+  - date: 2025-07-02
+    description: Clone helper repo to /data and run install script from there
+  - date: 2025-07-03
+    description: Clone helper repo via HTTPS and install git
+  - date: 2025-07-04
+    description: Ensure git is installed during deployment
+  - date: 2025-07-05
+    description: Clone helper repo directly to /app to keep git files
+  - date: 2025-07-06
+    description: Clone repo to temp path and copy to /app to avoid clone error
+  - date: 2025-07-07
+    description: Clone directly to /app and pull if repo exists
 links:
   - label: Website
     url: https://titansystems.ph
@@ -21,35 +40,50 @@ contributors:
 schema:
   type: object
   required:
+    - appServiceName
     - pcode
     - licenseKey
     - port
   properties:
+    appServiceName:
+      type: string
+      title: App Service Name
+      description: Name of the service in EasyPanel.
+      default: zender-wa
     pcode:
       type: string
       title: Product Code (pcode)
-      description: UUID de producto proporcionado por Titan Systems.
+      description: Product UUID provided by Titan Systems.
     licenseKey:
       type: string
-      title: License Key
-      description: Clave de licencia de Titan Systems.
+      title: Secret Key
+      description:
+        Unique secure secret key. This will be used by the WhatsApp server to
+        verify peer connection with Zender.
     port:
       type: integer
-      title: Puerto TCP
-      description: Puerto donde escuchará el servidor WhatsApp.
+      title: TCP Port
+      description: Port where the WhatsApp server will listen.
       default: 443
+    domain:
+      type: string
+      title: Domain
+      description: >
+        Domain to expose the WhatsApp server. Defaults to your EasyPanel domain
+        if not provided.
 benefits:
-  - title: Persistencia de sesiones
-    description: Mantiene las sesiones de WhatsApp activas entre reinicios.
-  - title: Auto-recuperación
-    description: Crontab garantiza que el servidor se reinicie si falla.
+  - title: Session persistence
+    description: Keeps WhatsApp sessions active between restarts.
+  - title: Self recovery
+    description: Crontab ensures the server restarts if it fails.
 features:
-  - title: Instalación de dependencias
-    description: Actualiza el sistema e instala wget, curl, unzip y cron.
-  - title: Gestión de directorios
-    description: Usa un volumen montado en /app/data/whatsapp-server.
-  - title: Actualización automática
-    description: Descarga la última versión del servidor en cada despliegue.
+  - title: Dependency installation
+    description:
+      Updates the system and installs wget, curl, git, unzip and cron.
+  - title: Directory management
+    description: Uses a volume mounted at /app/data/whatsapp-server.
+  - title: Automatic update
+    description: Downloads the latest server version using curl on each deploy.
 tags:
   - WhatsApp
   - Zender
