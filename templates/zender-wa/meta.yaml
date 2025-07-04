@@ -82,7 +82,7 @@ features:
   - title: Prebuilt image
     description: Runs the official Docker image with all dependencies.
   - title: Directory management
-    description: Uses a volume mounted at /app/data/whatsapp-server.
+    description: Uses a volume mounted at data/whatsapp-server.
 tags:
   - WhatsApp
   - Zender
