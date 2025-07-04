@@ -1,7 +1,7 @@
 # meta.yaml
 name: zender-wa
 title: WhatsApp Server (Zender)
-version: "1.0.7"
+version: "1.0.8"
 description: >
   Deploys the Titan Systems (Zender) WhatsApp server with session persistence to
   keep the login state between restarts.
@@ -27,6 +27,8 @@ changeLog:
     description: Clone repo to temp path and copy to /app to avoid clone error
   - date: 2025-07-07
     description: Clone directly to /app and pull if repo exists
+  - date: 2025-07-08
+    description: Use prebuilt Docker image renatoascencio/zender-wa:latest
 links:
   - label: Website
     url: https://titansystems.ph
@@ -77,13 +79,10 @@ benefits:
   - title: Self recovery
     description: Crontab ensures the server restarts if it fails.
 features:
-  - title: Dependency installation
-    description:
-      Updates the system and installs wget, curl, git, unzip and cron.
+  - title: Prebuilt image
+    description: Runs the official Docker image with all dependencies.
   - title: Directory management
     description: Uses a volume mounted at /app/data/whatsapp-server.
-  - title: Automatic update
-    description: Downloads the latest server version using curl on each deploy.
 tags:
   - WhatsApp
   - Zender
