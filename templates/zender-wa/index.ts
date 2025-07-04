@@ -27,7 +27,7 @@ export function generate(input: Input): Output {
         {
           type: "volume",
           name: "data",
-          mountPath: "/app/data/whatsapp-server",
+          mountPath: "data/whatsapp-server",
         },
       ],
       ports: [
