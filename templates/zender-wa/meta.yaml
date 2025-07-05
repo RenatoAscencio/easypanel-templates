@@ -73,6 +73,11 @@ schema:
       description: >
         Domain to expose the WhatsApp server. Defaults to your EasyPanel domain
         if not provided.
+    image:
+      type: string
+      title: Docker Image
+      description: Docker image to use for the WhatsApp server.
+      default: renatoascencio/zender-wa:latest
 benefits:
   - title: Session persistence
     description: Keeps WhatsApp sessions active between restarts.
