@@ -1,0 +1,25 @@
+[
+  {
+    "slug": "kepler",
+    "logo": "logo.png",
+    "name": "kepler",
+    "description": "Despliega Kepler, un emulador de Habbo Hotel v14 escrito en Java.\n",
+    "tags": [
+      "Habbo",
+      "Emulator",
+      "MariaDB"
+    ]
+  },
+  {
+    "slug": "zender-wa",
+    "logo": "logo.png",
+    "name": "zender-wa",
+    "description": "Deploys the Titan Systems (Zender) WhatsApp server with session persistence to keep the login state between restarts.\n",
+    "tags": [
+      "WhatsApp",
+      "Zender",
+      "EasyPanel",
+      "Docker"
+    ]
+  }
+]

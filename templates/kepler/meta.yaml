@@ -1,0 +1,77 @@
+# meta.yaml
+name: kepler
+title: Kepler Emulator
+version: "1.0.0"
+description: >
+  Despliega Kepler, un emulador de Habbo Hotel v14 escrito en Java.
+instructions: null
+changeLog:
+  - date: 2025-07-22
+    description: Primera versión del template Kepler
+links:
+  - label: GitHub
+    url: https://github.com/Quackster/Kepler
+contributors:
+  - name: Quackster
+    url: https://github.com/Quackster
+schema:
+  type: object
+  required:
+    - appServiceName
+    - dbServiceName
+  properties:
+    appServiceName:
+      type: string
+      title: Nombre del servicio de la app
+      description: Nombre del contenedor de Kepler en Easypanel.
+      default: kepler
+    dbServiceName:
+      type: string
+      title: Nombre del servicio de base de datos
+      description: Nombre del contenedor de MariaDB.
+      default: kepler-db
+    serverPort:
+      type: integer
+      title: Puerto del servidor
+      description: Puerto para conexiones de clientes.
+      default: 12321
+    rconPort:
+      type: integer
+      title: Puerto RCON
+      description: Puerto del servidor RCON.
+      default: 12309
+    musPort:
+      type: integer
+      title: Puerto MUS
+      description: Puerto MUS para la cámara.
+      default: 12322
+    mysqlUser:
+      type: string
+      title: Usuario MariaDB
+      default: kepler
+    mysqlPassword:
+      type: string
+      title: Contraseña MariaDB
+      default: verysecret
+    mysqlDatabase:
+      type: string
+      title: Base de datos
+      default: kepler
+    mysqlRootPassword:
+      type: string
+      title: Contraseña root MariaDB
+      default: veryverysecret
+    image:
+      type: string
+      title: Docker image
+      default: quackster/kepler:latest
+benefits:
+  - title: Instalación rápida
+    description: Configuración sencilla mediante Easypanel.
+features:
+  - title: Servicio independiente de MariaDB
+    description: Incluye base de datos con datos iniciales.
+tags:
+  - Habbo
+  - Emulator
+  - MariaDB
