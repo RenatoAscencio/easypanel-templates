@@ -12,6 +12,7 @@ export function generate(input: Input): Output {
         `PCODE=${input.pcode}`,
         `KEY=${input.licenseKey}`,
         `PORT=${input.port || 443}`,
+        `WATCHTOWER_POLL_INTERVAL=${input.autoupdate ? "300" : ""}`,
       ].join("\n"),
       source: {
         type: "image",
@@ -36,6 +37,20 @@ export function generate(input: Input): Output {
           target: input.port || 443,
         },
       ],
+      deploy: {
+        replicas: 1,
+        command: null,
+        zeroDowntime: true,
+        restartPolicy: "always",
+      },
+      labels: [
+        // Etiqueta para que Watchtower actualice automáticamente
+        input.autoupdate ? "com.centurylinklabs.watchtower.enable=true" : "",
+        // Forzar pull de imagen nueva en cada deploy
+        "com.easypanel.image.pull=always",
+        // Redeploy automático cuando haya nueva versión
+        "com.easypanel.autoupdate=true",
+      ].filter(Boolean).join("\n"),
     },
   });
 
