@@ -17,6 +17,8 @@ changeLog:
     description: Advanced monitoring and health checks
   - date: 2024-09-18
     description: Automated CI/CD with GitHub Actions
+  - date: 2024-09-18
+    description: Template updated to trigger Docker build
   - date: 2025-07-08
     description: Use prebuilt Docker image renatoascencio/zender-wa:latest
 links:
