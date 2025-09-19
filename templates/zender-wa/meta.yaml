@@ -74,11 +74,6 @@ schema:
       title: Docker Image
       description: Docker image to use for the WhatsApp server (optimized enterprise edition).
       default: renatoascencio/zender-wa:v2.1.3
-    autoupdate:
-      type: boolean
-      title: Auto Update
-      description: Automatically update the container when a new image version is available.
-      default: true
 benefits:
   - title: 62% Smaller Image
     description: Optimized Alpine-based image (152MB vs 398MB).
