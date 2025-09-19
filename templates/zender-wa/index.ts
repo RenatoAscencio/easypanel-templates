@@ -41,7 +41,6 @@ export function generate(input: Input): Output {
         replicas: 1,
         command: null,
         zeroDowntime: true,
-        restartPolicy: "always",
       },
       labels: [
         // Etiqueta para que Watchtower actualice automáticamente
