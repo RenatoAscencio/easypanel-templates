@@ -2,7 +2,7 @@
 # Script para forzar redeploy y actualización de imagen en EasyPanel
 
 SERVICE_NAME="${1:-zender-wa}"
-IMAGE_NAME="${2:-renatoascencio/zender-wa:v2.1.3}"
+IMAGE_NAME="${2:-renatoascencio/zender-wa:latest}"
 
 echo "🔄 Iniciando redeploy de $SERVICE_NAME..."
 
