@@ -20,7 +20,7 @@ export function generate(input: Input): Output {
       domains: [
         {
           host: input.domain || "$(EASYPANEL_DOMAIN)",
-          port: 443,
+          port: input.port || 443,
         },
       ],
       mounts: [

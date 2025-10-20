@@ -59,6 +59,11 @@ schema:
       description:
         Unique secure secret key. This will be used by the WhatsApp server to
         verify peer connection with Zender.
+    port:
+      type: integer
+      title: Public Port
+      description: Port to expose the WhatsApp server publicly.
+      default: 443
     domain:
       type: string
       title: Domain (optional)
