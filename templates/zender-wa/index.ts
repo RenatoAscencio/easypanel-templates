@@ -11,16 +11,16 @@ export function generate(input: Input): Output {
       env: [
         `PCODE=${input.pcode}`,
         `KEY=${input.licenseKey}`,
-        `PORT=${input.port || 7001}`,
+        `PORT=443`,
       ].join("\n"),
       source: {
         type: "image",
-        image: input.image || "renatoascencio/zender-wa:20251020-124300",
+        image: input.image || "renatoascencio/zender-wa:latest",
       },
       domains: [
         {
           host: input.domain || "$(EASYPANEL_DOMAIN)",
-          port: input.port || 7001,
+          port: 443,
         },
       ],
       mounts: [
@@ -28,12 +28,6 @@ export function generate(input: Input): Output {
           type: "volume",
           name: "data",
           mountPath: "/data/whatsapp-server",
-        },
-      ],
-      ports: [
-        {
-          published: input.port || 7001,
-          target: 443, // El contenedor siempre escucha en 443 internamente
         },
       ],
       deploy: {
