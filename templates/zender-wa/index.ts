@@ -40,28 +40,6 @@ export function generate(input: Input): Output {
         replicas: 1,
         command: "/usr/local/bin/entrypoint.sh",
         zeroDowntime: true,
-        resources: {
-          limits: {
-            memory: input.memoryLimit || "1G",
-            cpus: input.cpuLimit || "1.0",
-          },
-          reservations: {
-            memory: input.memoryReservation || "256M",
-            cpus: input.cpuReservation || "0.25",
-          },
-        },
-        restartPolicy: {
-          condition: "on-failure",
-          delay: "5s",
-          maxAttempts: 3,
-        },
-      },
-      healthcheck: {
-        test: ["/usr/local/bin/status-wa"],
-        interval: "30s",
-        timeout: "10s",
-        startPeriod: "60s",
-        retries: 3,
       },
     },
   });
