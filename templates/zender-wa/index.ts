@@ -15,7 +15,7 @@ export function generate(input: Input): Output {
       ].join("\n"),
       source: {
         type: "image",
-        image: input.image || "renatoascencio/zender-wa:20251020-113007",
+        image: input.image || "renatoascencio/zender-wa:latest",
       },
       domains: [
         {
