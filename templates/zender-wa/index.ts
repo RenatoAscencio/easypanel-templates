@@ -15,7 +15,7 @@ export function generate(input: Input): Output {
       ].join("\n"),
       source: {
         type: "image",
-        image: input.image || "renatoascencio/zender-wa:latest",
+        image: input.image || "renatoascencio/zender-wa:20251020-124300",
       },
       domains: [
         {
@@ -38,7 +38,7 @@ export function generate(input: Input): Output {
       ],
       deploy: {
         replicas: 1,
-        command: "/usr/local/bin/entrypoint.sh",
+        command: null,
         zeroDowntime: true,
       },
     },
