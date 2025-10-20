@@ -1,12 +1,14 @@
 # meta.yaml
 name: zender-wa
 title: WhatsApp Server (Zender) - Enterprise Edition
-version: "2.1.6"
+version: "2.1.8"
 description: >
   Deploys the optimized Titan Systems (Zender) WhatsApp server with enterprise features,
   multi-architecture support, session persistence, and 62% smaller image size.
 instructions: null
 changeLog:
+  - date: 2025-10-20
+    description: v2.1.8 - Removed unnecessary resource configuration fields
   - date: 2025-10-20
     description: v2.1.6 - Fixed template schema compatibility with EasyPanel
   - date: 2025-10-20
@@ -79,27 +81,7 @@ schema:
       type: string
       title: Docker Image
       description: Docker image to use for the WhatsApp server (optimized enterprise edition).
-      default: renatoascencio/zender-wa:latest
-    memoryLimit:
-      type: string
-      title: Memory Limit
-      description: Maximum memory the container can use (e.g., 1G, 2G).
-      default: "1G"
-    cpuLimit:
-      type: string
-      title: CPU Limit
-      description: Maximum CPU cores the container can use (e.g., 1.0, 2.0).
-      default: "1.0"
-    memoryReservation:
-      type: string
-      title: Memory Reservation
-      description: Minimum memory reserved for the container (e.g., 256M, 512M).
-      default: "256M"
-    cpuReservation:
-      type: string
-      title: CPU Reservation
-      description: Minimum CPU cores reserved for the container (e.g., 0.25, 0.5).
-      default: "0.25"
+      default: renatoascencio/zender-wa:20251020-124300
 benefits:
   - title: 62% Smaller Image
     description: Optimized Alpine-based image (152MB vs 398MB).
