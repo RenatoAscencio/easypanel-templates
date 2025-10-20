@@ -1,0 +1,14 @@
+[
+  {
+    "slug": "zender-wa",
+    "logo": "logo.png",
+    "name": "zender-wa",
+    "description": "Deploys the optimized Titan Systems (Zender) WhatsApp server with enterprise features, multi-architecture support, session persistence, and 62% smaller image size.\n",
+    "tags": [
+      "WhatsApp",
+      "Zender",
+      "EasyPanel",
+      "Docker"
+    ]
+  }
+]
