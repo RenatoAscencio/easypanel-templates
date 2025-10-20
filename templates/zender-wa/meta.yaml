@@ -1,12 +1,14 @@
 # meta.yaml
 name: zender-wa
 title: WhatsApp Server (Zender) - Enterprise Edition
-version: "2.1.5"
+version: "2.1.6"
 description: >
   Deploys the optimized Titan Systems (Zender) WhatsApp server with enterprise features,
   multi-architecture support, session persistence, and 62% smaller image size.
 instructions: null
 changeLog:
+  - date: 2025-10-20
+    description: v2.1.6 - Fixed WhatsApp server as main process for EasyPanel compatibility
   - date: 2025-10-20
     description: v2.1.5 - Fixed container port configuration, removed confusing port field
   - date: 2025-10-20
